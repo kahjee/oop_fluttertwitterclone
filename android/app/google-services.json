@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "388758909563",
+    "project_id": "fluttertwitterclone-badb8",
+    "storage_bucket": "fluttertwitterclone-badb8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:388758909563:android:182334e8e0e8a749dce8de",
+        "android_client_info": {
+          "package_name": "com.example.twitterclone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "388758909563-vpnuf49u6n0tga75uru45iojb5gh854c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.twitterclone",
+            "certificate_hash": "8b7416109bdf0f99aa3ba55f6934483fa9c01bd0"
+          }
+        },
+        {
+          "client_id": "388758909563-aucmmb7pdb1sc901l937g0261rsimhf9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-UVUSTEPOfTWp7tIdNJA_DeykgcY0c7Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "388758909563-aucmmb7pdb1sc901l937g0261rsimhf9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
