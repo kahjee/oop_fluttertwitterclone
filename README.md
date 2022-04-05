@@ -1,16 +1,12 @@
 # twitterclone
 
-A new Flutter project.
+A Twitter clone created using Dart and Flutter.
 
-## Getting Started
+## Important Information
 
-This project is a starting point for a Flutter application.
+This app utilizes Firebase and Flutterfire in order for the login and the authentication. 
+Since Firebase does not allow usernames nor passwords under 6 characters, I have decided to change the login credentials. 
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+The login credentials are as follows:
+Email: admin@admin.com
+Password: admin1
