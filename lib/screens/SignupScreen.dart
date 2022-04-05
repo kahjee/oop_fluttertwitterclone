@@ -16,7 +16,26 @@ class _SignupScreenState extends State<SignupScreen> {
   FirebaseAuth UserAuthentication = FirebaseAuth.instance;
 
   void SnackbarError() async{
-    
+    new SnackBar(content: Text("Invalid input"));
+  }
+
+  void SignUp() async{
+    try {
+  UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+    email: UserEmail,
+    password: UserPassword
+  );
+} on FirebaseAuthException catch (e) {
+  if (e.code == 'weak-password') {
+    SnackbarError();
+    print('The password provided is too weak.');
+  } else if (e.code == 'email-already-in-use') {
+    SnackbarError();
+    print('The account already exists for that email.');
+  }
+} catch (e) {
+  print(e);
+}
   }
 
   void LogIn() async{
@@ -27,8 +46,10 @@ class _SignupScreenState extends State<SignupScreen> {
   );
 } on FirebaseAuthException catch (e) {
   if (e.code == 'user-not-found') {
+    SnackbarError();
     print('No user found for that email.');
   } else if (e.code == 'wrong-password') {
+    SnackbarError();
     print('Wrong password provided for that user.');
   }
 }
@@ -58,15 +79,17 @@ class _SignupScreenState extends State<SignupScreen> {
 
             TextFormField(onChanged: (value) => setState(() {
               UserEmail = value;
-            }), decoration: InputDecoration(labelText: 'Username', border: OutlineInputBorder(borderSide: BorderSide.none, borderRadius: BorderRadius.circular(30))),
+            }), decoration: InputDecoration(labelText: 'Email', border: OutlineInputBorder(borderSide: BorderSide.none, borderRadius: BorderRadius.circular(30))),
             ),
             
             TextFormField(onChanged: (value) => setState(() {
-              UserEmail = value;
+              UserPassword = value;
             }), decoration: InputDecoration(labelText: 'Password', border: OutlineInputBorder(borderSide: BorderSide.none, borderRadius: BorderRadius.circular(30))),
             ),
 
-            ElevatedButton(onPressed: () async => {LogIn()}, child: Text('Log In'))
+            ElevatedButton(onPressed: () async => {SignUp()}, child: Text('Sign Up')),
+
+            ElevatedButton(onPressed: () async => {LogIn()}, child: Text('Log In')),
           ],
         )),
 
