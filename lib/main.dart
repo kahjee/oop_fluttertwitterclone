@@ -24,9 +24,9 @@ class MyApp extends StatelessWidget {
 
     final Authentication auth = Authentication();
 
-    return StreamProvider<TwitterUserModel>.value(
-      value: auth.TwitterUser, 
-      initialData: auth.TwitterUser,
+    return StreamProvider<TwitterUserModel?>.value(
+      value: auth.user, 
+      initialData: null,
       child: const MaterialApp(home: WrapperScreen()),
       );
   }

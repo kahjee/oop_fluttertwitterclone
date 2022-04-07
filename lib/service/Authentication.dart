@@ -10,14 +10,16 @@ import 'package:twitterclone/models/UserInfo.dart';
 class Authentication {
   FirebaseAuth authmechanism = FirebaseAuth.instance;
 
-  TwitterUserModel? _FirebaseUser(User TwitterUser){
-    return TwitterUser != null ? TwitterUserModel(id: TwitterUser.uid) : null;
-  }
-  
-  Stream<UserInfoModel> get TwitterUser{
-    return authmechanism.authStateChanges().map(_FirebaseUser);
+  String UserEmail = '';
+  String UserPassword = '';
+
+  TwitterUserModel? _FirebaseUser(User TwitterUser) {
+    return user != null? TwitterUserModel(id: TwitterUser.uid) : null;
   }
 
+  Stream<TwitterUserModel> get user {
+    return authmechanism.authStateChanges().map(_FirebaseUserEdit(_FirebaseUser.toString()));
+  }
 
   Future SignUp(UserEmail, UserPassword) async{
     try {
@@ -70,4 +72,6 @@ Future SignOut() async{
     return null;
   }
 }
+
+  TwitterUserModel Function(User? event) _FirebaseUserEdit(String string) {}
 }

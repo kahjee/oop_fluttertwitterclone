@@ -7,6 +7,10 @@ class AddPosts extends StatefulWidget {
   State<AddPosts> createState() => _AddPostsState();
 }
 
+void SnackbarPostAdded() async{
+    SnackBar(content: const Text("Tweet added!"));
+  }
+
 class _AddPostsState extends State<AddPosts> {
 
   String TweetText = "";
