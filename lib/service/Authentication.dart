@@ -13,12 +13,13 @@ class Authentication {
   String UserEmail = '';
   String UserPassword = '';
 
-  TwitterUserModel? _FirebaseUser(User TwitterUser) {
-    return user != null? TwitterUserModel(id: TwitterUser.uid) : null;
+  TwitterUserModel? _FirebaseUser(User? TwitterUser) {
+    // ignore: unnecessary_null_comparison
+    return user != null? TwitterUserModel(id: TwitterUser!.uid) : null;
   }
 
-  Stream<TwitterUserModel> get user {
-    return authmechanism.authStateChanges().map(_FirebaseUserEdit(_FirebaseUser.toString()));
+  Stream<TwitterUserModel?> get user {
+    return authmechanism.authStateChanges().map(_FirebaseUser);
   }
 
   Future SignUp(UserEmail, UserPassword) async{
@@ -72,6 +73,4 @@ Future SignOut() async{
     return null;
   }
 }
-
-  TwitterUserModel Function(User? event) _FirebaseUserEdit(String string) {}
 }

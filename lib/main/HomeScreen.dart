@@ -16,6 +16,9 @@ class HomeScreen extends StatelessWidget {
           ElevatedButton(onPressed: () async {_authServ.SignOut();}, child: Title(color: Colors.white, child: Text('Logout')),),
         ],
         ),
+
+      //test
+
       floatingActionButton: FloatingActionButton(onPressed:(() {
         Navigator.pushNamed(context, "/add");
       } ), child: Icon(Icons.add),),
