@@ -10,23 +10,23 @@ import 'package:twitterclone/models/UserInfo.dart';
 class Authentication {
   FirebaseAuth authmechanism = FirebaseAuth.instance;
 
-  Stream<UserInfoModel?> get TwitterUser{
-    return authmechanism.authStateChanges().map(_FirebaseUser);
-  }
-
   TwitterUserModel? _FirebaseUser(User TwitterUser){
     return TwitterUser != null ? TwitterUserModel(id: TwitterUser.uid) : null;
   }
+  
+  Stream<UserInfoModel> get TwitterUser{
+    return authmechanism.authStateChanges().map(_FirebaseUser);
+  }
 
 
-  void SignUp(UserEmail, UserPassword) async{
+  Future SignUp(UserEmail, UserPassword) async{
     try {
   User TwitterUser = (await FirebaseAuth.instance.createUserWithEmailAndPassword(
     email: UserEmail,
     password: UserPassword
   )) as User;
 
-  _FirebaseUser(TwitterUser);
+   _FirebaseUser(TwitterUser);
 } on FirebaseAuthException catch (e) {
   if (e.code == 'weak-password') {
     SnackbarError();
@@ -44,8 +44,8 @@ class Authentication {
   Future LogIn(UserEmail, UserPassword) async{
     try {
   User TwitterUser = (await FirebaseAuth.instance.signInWithEmailAndPassword(
-    email: "admin@admin.com",
-    password: "admin1"
+    email: UserEmail,
+    password: UserPassword
   )) as User;
 
   _FirebaseUser(TwitterUser);
@@ -60,4 +60,14 @@ class Authentication {
 }
   }
 
+
+Future SignOut() async{
+  try{
+    return await authmechanism.signOut();
+  }
+  catch(e){
+    print(e.toString());
+    return null;
+  }
+}
 }

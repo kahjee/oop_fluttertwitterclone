@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:twitterclone/main/HomeScreen.dart';
+import 'package:twitterclone/main/postscreens/AddPosts.dart';
 import 'package:twitterclone/models/UserInfo.dart';
 import 'package:twitterclone/screens/SignupScreen.dart';
 
@@ -15,6 +16,13 @@ class WrapperScreen extends StatelessWidget {
       return SignupScreen();
     }
     
+    return MaterialApp(
+      initialRoute: '/',
+      routes: {
+        '/':(context) => HomeScreen(),
+        '/AddPosts':(context) => AddPosts(),
+      },
+    );
     return HomeScreen();
   }
 }

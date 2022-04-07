@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:twitterclone/models/TwitterUser.dart';
 import 'package:twitterclone/screens/SignupScreen.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:twitterclone/screens/WrapperScreen.dart';
+import 'package:twitterclone/service/Authentication.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -17,15 +21,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      
-      title: 'Flutter Demo',
-      theme: ThemeData(
-      primarySwatch: Colors.lightBlue,
-      fontFamily: 'Roboto'
 
-      ),
-      home: SignupScreen()
-    );
+    final Authentication auth = Authentication();
+
+    return StreamProvider<TwitterUserModel>.value(
+      value: auth.TwitterUser, 
+      initialData: auth.TwitterUser,
+      child: const MaterialApp(home: WrapperScreen()),
+      );
   }
 }
