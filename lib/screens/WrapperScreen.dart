@@ -15,14 +15,13 @@ class WrapperScreen extends StatelessWidget {
     final user = Provider.of<UserInfoModel?>(context);
 
     if(user == null){
-      return Provider<HomeScreen>(create: ((context) => HomeScreen()),
-      );
+      return SignupScreen();
     }
     
     return MaterialApp(
       initialRoute: '/',
       routes: {
-        '/':(context) => HomeScreen(),
+        '/':(context) => const HomeScreen(),
         '/AddPosts':(context) => AddPosts(),
       },
     );

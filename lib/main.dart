@@ -16,11 +16,11 @@ void main() async {
   );
   runApp(MyApp());
 }
-
+ 
 class MyApp extends StatelessWidget {
 
   final Future<FirebaseApp> _init = Firebase.initializeApp(); 
-  MyApp({Key? key}) : super(key: key);
+  // MyApp({Key? key}) : super(key: key);
   
 
   @override
@@ -41,8 +41,7 @@ class MyApp extends StatelessWidget {
           child: const MaterialApp(home: WrapperScreen()),
           );
         }
-        
-    return const Text('Loading');
+    return Text('test');
   });
 }
 }
