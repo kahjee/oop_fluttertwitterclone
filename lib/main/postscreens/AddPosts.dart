@@ -22,7 +22,7 @@ class _AddPostsState extends State<AddPosts> {
     return Scaffold(
       appBar: AppBar(title: Text('Add your Tweet'), actions: <Widget>[TextButton(
         onPressed: () async{
-          _mechanism.SavePost(Text);
+          _mechanism.SavePosts(Text);
           Navigator.pop(context);
         }, 
         child: Text('Tweet'), )

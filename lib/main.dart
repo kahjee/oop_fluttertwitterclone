@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
           child: const MaterialApp(home: WrapperScreen()),
           );
         }
-    return Text('test');
+    return Text('test', textDirection: TextDirection.ltr,);
   });
 }
 }
