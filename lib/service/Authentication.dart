@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:twitterclone/models/TwitterUser.dart';
 
+// This code would allow the user to log into the Twitter clone, if they have created an account using an email.
+
   void SnackbarError() async{
     const SnackBar(content: Text("Invalid input"));
   }
