@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:twitterclone/service/PostMechanism.dart';
 
+// This code would allow the user to add their text message into the Firestore database.
+
 class AddPosts extends StatefulWidget {
   const AddPosts({Key? key}) : super(key: key);
 
