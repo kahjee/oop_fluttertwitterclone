@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:twitterclone/models/TwitterUser.dart';
-import 'package:twitterclone/models/UserInfo.dart';
 
   void SnackbarError() async{
-    SnackBar(content: const Text("Invalid input"));
+    const SnackBar(content: Text("Invalid input"));
   }
 
 class Authentication {
@@ -33,10 +32,10 @@ class Authentication {
 } on FirebaseAuthException catch (e) {
   if (e.code == 'weak-password') {
     SnackbarError();
-    print('The password provided is too weak.');
+    debugPrint('The password provided is too weak.');
   } else if (e.code == 'email-already-in-use') {
     SnackbarError();
-    print('The account already exists for that email.');
+    debugPrint('The account already exists for that email.');
   }
 } catch (e) {
   print(e);
@@ -55,10 +54,10 @@ class Authentication {
 } on FirebaseAuthException catch (e) {
   if (e.code == 'user-not-found') {
     SnackbarError();
-    print('No user found for that email.');
+    debugPrint('No user found for that email.');
   } else if (e.code == 'wrong-password') {
     SnackbarError();
-    print('Wrong password provided for that user.');
+    debugPrint('Wrong password provided for that user.');
   }
 }
   }
@@ -69,7 +68,7 @@ Future SignOut() async{
     return await authmechanism.signOut();
   }
   catch(e){
-    print(e.toString());
+    debugPrint(e.toString());
     return null;
   }
 }

@@ -1,12 +1,11 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:twitterclone/service/Authentication.dart';
 
 class SignupScreen extends StatefulWidget {
-  SignupScreen({Key? key}) : super(key: key);
+  const SignupScreen({Key? key}) : super(key: key);
 
   @override
   State<SignupScreen> createState() => _SignupScreenState();
@@ -75,7 +74,7 @@ class _SignupScreenState extends State<SignupScreen> {
       body: Container(
 
         padding: EdgeInsets.symmetric(vertical: 100, horizontal: 30),
-        child: new Form(child: Column(
+        child: Form(child: Column(
           children: [
             Text('See what\'s happening in the world right now.', style: TextStyle(fontSize: 30, )),
             Image.asset('assets/twitter_icon.png'),

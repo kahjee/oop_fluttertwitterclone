@@ -7,7 +7,7 @@ import 'package:twitterclone/models/PostModel.dart';
 class PostMechanism {
 
   List<PostModel> _postList(QuerySnapshot QuerySnaps){
-    var snapshot;
+    dynamic snapshot;
     return snapshot.docs.map((doc) {
       return PostModel(creatorid: doc.data()["creatorid"] ?? "", text: doc.data()["text"] ?? "", id: doc.id, timestamp: doc.data()["timestamp"] ?? 0);
     }).toList();
@@ -21,7 +21,7 @@ class PostMechanism {
     );
   }
 
-  Stream<List<PostModel>> getPostsByUser(uid){
+  Stream<List<PostModel>> getPosts(uid){
     return FirebaseFirestore.instance.collection("posts").where("creatorid", isEqualTo: uid).snapshots().map(_postList);
   }
 }
