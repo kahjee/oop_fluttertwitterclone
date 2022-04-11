@@ -6,6 +6,8 @@ import 'package:twitterclone/main/postscreens/AddPosts.dart';
 import 'package:twitterclone/models/UserInfo.dart';
 import 'package:twitterclone/screens/SignupScreen.dart';
 
+// The WrapperScreen is used to redirect the user to their screens of choice. 
+
 class WrapperScreen extends StatelessWidget {
 
   const WrapperScreen({Key? key}) : super(key: key);

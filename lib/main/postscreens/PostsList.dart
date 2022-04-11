@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 
 import '../../models/PostModel.dart';
 
+// The PostsList would provide the user with a list of the posts that they have made. 
+
 class PostsList extends StatefulWidget {
   PostsList({Key? key}) : super(key: key);
 

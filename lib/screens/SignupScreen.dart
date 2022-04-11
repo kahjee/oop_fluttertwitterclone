@@ -4,6 +4,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:twitterclone/service/Authentication.dart';
 
+// The SignupScreen is the screen where users log their email and passwords in or register if they do not have an account yet.
+
 class SignupScreen extends StatefulWidget {
   const SignupScreen({Key? key}) : super(key: key);
 
